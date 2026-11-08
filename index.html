@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidioAI — Connexion & Inscription</title>
+    <title>VidioAI — Plateforme de Génération Vidéo par Intelligence Artificielle</title>
+    <!-- Balise de vérification Google Search Console -->
     <meta name="google-site-verification" content="pcRtP6Y8xD8fLlctfAjnn5ecrn50bibvzacrpD-mlhA" />
     
     <!-- Tailwind CSS -->
@@ -137,6 +138,9 @@
         </button>
         <button type="button" onclick="switchView('my-creations'); toggleMobileMenu();" class="w-full text-left py-2 text-sm text-white font-medium flex items-center space-x-3 cursor-pointer">
             <i class="fa-solid fa-folder-open text-brand-red"></i><span>Mes Créations</span>
+        </button>
+        <button type="button" onclick="switchView('gallery'); toggleMobileMenu();" class="w-full text-left py-2 text-sm text-white font-medium flex items-center space-x-3 cursor-pointer">
+            <i class="fa-solid fa-photo-film text-brand-red"></i><span>Galerie d'Exemples</span>
         </button>
         <button type="button" onclick="switchView('dashboard'); toggleMobileMenu();" class="w-full text-left py-2 text-sm text-white font-medium flex items-center space-x-3 cursor-pointer">
             <i class="fa-solid fa-key text-brand-red"></i><span>Clé API & Paramètres</span>
@@ -282,6 +286,4 @@
                     <div class="space-y-2">
                         <label class="text-xs font-bold text-white">Durée de la vidéo</label>
                         <div class="grid grid-cols-4 gap-2">
-                            <button type="button" id="dur-5" onclick="setDuration(5)" class="py-2 text-xs font-semibold rounded-lg bg-brand-red text-white cursor-pointer">5s</button>
-                            <button type="button" id="dur-10" onclick="setDuration(10)" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub cursor-pointer">10s</button>
-                            <button type="button" id="dur-15" oncli
+                            <button type="button" id="dur-5" onclick="setDu
