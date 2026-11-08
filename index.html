@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidioAI — Plateforme de Génération Vidéo par Intelligence Artificielle</title>
-    <!-- Balise de vérification Google Search Console mise à jour -->
+    <title>VidioAI — Connexion & Inscription</title>
     <meta name="google-site-verification" content="pcRtP6Y8xD8fLlctfAjnn5ecrn50bibvzacrpD-mlhA" />
     
     <!-- Tailwind CSS -->
@@ -65,7 +64,6 @@
 
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-40 w-full glass-card border-b border-brand-border px-4 lg:px-8 py-3 flex items-center justify-between">
-        <!-- LOGO BRAND -->
         <div class="flex items-center space-x-6 cursor-pointer select-none" onclick="switchView('landing')">
             <div class="flex items-center space-x-3">
                 <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,12 +73,11 @@
                 <span class="text-xl font-black tracking-wider text-white">Vidio<span class="text-brand-red">AI</span></span>
             </div>
             
-            <!-- DESKTOP NAV -->
             <nav class="hidden md:flex items-center space-x-6 text-xs font-semibold text-brand-graySub">
                 <button type="button" onclick="switchView('generator')" class="hover:text-white transition-colors cursor-pointer">Studio Générateur</button>
                 <button type="button" onclick="switchView('my-creations')" class="hover:text-white transition-colors cursor-pointer">Mes Créations</button>
                 <button type="button" onclick="switchView('gallery')" class="hover:text-white transition-colors cursor-pointer">Galerie IA</button>
-                <button type="button" onclick="switchView('pricing')" class="hover:text-white transition-colors cursor-pointer">Abonnements</button>
+                <button type="button" onclick="switchView('dashboard')" class="hover:text-white transition-colors cursor-pointer">Clé API & Paramètres</button>
             </nav>
         </div>
 
@@ -88,12 +85,8 @@
         <div class="flex items-center space-x-3">
             <!-- État Déconnecté -->
             <div id="user-menu-guest" class="flex items-center space-x-3">
-                <button type="button" onclick="openAuthModal('login')" class="text-xs font-semibold px-4 py-2 rounded-xl text-white hover:text-brand-red transition-colors cursor-pointer">
-                    Connexion
-                </button>
-                <button type="button" onclick="openAuthModal('register')" class="text-xs font-bold px-4 py-2 rounded-xl bg-brand-red hover:bg-brand-redHover text-white red-glow-subtle transition-all cursor-pointer">
-                    S'inscrire
-                </button>
+                <button type="button" onclick="switchView('login')" class="text-xs font-semibold px-4 py-2 rounded-xl text-white hover:text-brand-red transition-colors cursor-pointer">Connexion</button>
+                <button type="button" onclick="switchView('register')" class="text-xs font-bold px-4 py-2 rounded-xl bg-brand-red hover:bg-brand-redHover text-white red-glow-subtle transition-all cursor-pointer">S'inscrire</button>
             </div>
 
             <!-- État Connecté -->
@@ -114,21 +107,17 @@
                             <p id="dropdown-user-email" class="text-xs text-brand-graySub truncate">user@vidioai.com</p>
                         </div>
                         <button type="button" onclick="switchView('generator'); hideUserDropdown();" class="w-full text-left px-4 py-2.5 text-xs text-white hover:bg-brand-red/10 flex items-center space-x-2 cursor-pointer">
-                            <i class="fa-solid fa-wand-magic-sparkles text-brand-red"></i>
-                            <span>Studio Générateur</span>
+                            <i class="fa-solid fa-wand-magic-sparkles text-brand-red"></i><span>Studio Générateur</span>
                         </button>
                         <button type="button" onclick="switchView('my-creations'); hideUserDropdown();" class="w-full text-left px-4 py-2.5 text-xs text-white hover:bg-brand-red/10 flex items-center space-x-2 cursor-pointer">
-                            <i class="fa-solid fa-folder-open text-brand-red"></i>
-                            <span>Mes Créations</span>
+                            <i class="fa-solid fa-folder-open text-brand-red"></i><span>Mes Créations</span>
                         </button>
                         <button type="button" onclick="switchView('dashboard'); hideUserDropdown();" class="w-full text-left px-4 py-2.5 text-xs text-white hover:bg-brand-red/10 flex items-center space-x-2 cursor-pointer">
-                            <i class="fa-solid fa-key text-brand-red"></i>
-                            <span>Clés API / Mon Profil</span>
+                            <i class="fa-solid fa-key text-brand-red"></i><span>Clés API / Mon Profil</span>
                         </button>
                         <div class="border-t border-brand-border my-1"></div>
                         <button type="button" onclick="handleLogout()" class="w-full text-left px-4 py-2.5 text-xs text-red-400 hover:bg-brand-red/10 flex items-center space-x-2 cursor-pointer">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            <span>Déconnexion</span>
+                            <i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span>
                         </button>
                     </div>
                 </div>
@@ -144,29 +133,22 @@
     <!-- MENU MOBILE -->
     <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-brand-border px-4 py-3 space-y-2 z-30">
         <button type="button" onclick="switchView('generator'); toggleMobileMenu();" class="w-full text-left py-2 text-sm text-white font-medium flex items-center space-x-3 cursor-pointer">
-            <i class="fa-solid fa-wand-magic-sparkles text-brand-red"></i>
-            <span>Studio Générateur</span>
+            <i class="fa-solid fa-wand-magic-sparkles text-brand-red"></i><span>Studio Générateur</span>
         </button>
         <button type="button" onclick="switchView('my-creations'); toggleMobileMenu();" class="w-full text-left py-2 text-sm text-white font-medium flex items-center space-x-3 cursor-pointer">
-            <i class="fa-solid fa-folder-open text-brand-red"></i>
-            <span>Mes Créations</span>
-        </button>
-        <button type="button" onclick="switchView('gallery'); toggleMobileMenu();" class="w-full text-left py-2 text-sm text-white font-medium flex items-center space-x-3 cursor-pointer">
-            <i class="fa-solid fa-photo-film text-brand-red"></i>
-            <span>Galerie d'Exemples</span>
+            <i class="fa-solid fa-folder-open text-brand-red"></i><span>Mes Créations</span>
         </button>
         <button type="button" onclick="switchView('dashboard'); toggleMobileMenu();" class="w-full text-left py-2 text-sm text-white font-medium flex items-center space-x-3 cursor-pointer">
-            <i class="fa-solid fa-sliders text-brand-red"></i>
-            <span>Paramètres & Clés API</span>
+            <i class="fa-solid fa-key text-brand-red"></i><span>Clé API & Paramètres</span>
         </button>
     </div>
 
     <!-- CONTENU PRINCIPAL -->
-    <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-8 space-y-8">
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-8 space-y-8 flex items-center justify-center">
 
         <!-- VUE 1 : LANDING PAGE -->
-        <section id="view-landing" class="space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-6 pt-8">
+        <section id="view-landing" class="space-y-12 w-full max-w-3xl">
+            <div class="text-center space-y-6 pt-8">
                 <div class="inline-flex items-center space-x-2 bg-brand-red/10 border border-brand-red/30 px-4 py-1.5 rounded-full text-xs font-bold text-brand-red">
                     <i class="fa-solid fa-sparkles"></i>
                     <span>Intelligence Artificielle Générative Vidéo</span>
@@ -182,20 +164,83 @@
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
                         <span>Commencer à créer</span>
                     </button>
-                    <button type="button" onclick="switchView('gallery')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-brand-darkGrip border border-brand-border hover:border-brand-graySub text-white text-sm font-semibold transition-all cursor-pointer">
-                        Voir les démos
+                </div>
+            </div>
+        </section>
+
+        <!-- VUE INSCRIPTION (REGISTER) -->
+        <section id="view-register" class="hidden w-full max-w-md mx-auto">
+            <div class="glass-card rounded-3xl p-8 border border-brand-border space-y-6 shadow-2xl">
+                <div class="text-center space-y-2">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-red/20 border border-brand-red/30 flex items-center justify-center mx-auto text-brand-red text-xl font-bold">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white">Créer un compte</h2>
+                    <p class="text-xs text-brand-graySub">Inscrivez-vous et obtenez 50 crédits offerts.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-white">Nom complet</label>
+                        <input type="text" id="reg-name" placeholder="Ex: Bady Blazi" class="w-full bg-brand-black border border-brand-border rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-brand-red transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-white">Adresse e-mail</label>
+                        <input type="email" id="reg-email" placeholder="votre@email.com" class="w-full bg-brand-black border border-brand-border rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-brand-red transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-white">Mot de passe</label>
+                        <input type="password" id="reg-password" placeholder="••••••••" class="w-full bg-brand-black border border-brand-border rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-brand-red transition-all">
+                    </div>
+
+                    <button type="button" onclick="processRegister()" class="w-full py-4 rounded-xl bg-brand-red hover:bg-brand-redHover text-white text-xs font-bold red-glow transition-all cursor-pointer">
+                        S'inscrire maintenant
                     </button>
+
+                    <div class="text-center pt-2">
+                        <p class="text-xs text-brand-graySub">Déjà un compte ? <button type="button" onclick="switchView('login')" class="text-brand-red font-bold hover:underline cursor-pointer">Se connecter</button></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VUE CONNEXION (LOGIN) -->
+        <section id="view-login" class="hidden w-full max-w-md mx-auto">
+            <div class="glass-card rounded-3xl p-8 border border-brand-border space-y-6 shadow-2xl">
+                <div class="text-center space-y-2">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-red/20 border border-brand-red/30 flex items-center justify-center mx-auto text-brand-red text-xl font-bold">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white">Bon retour !</h2>
+                    <p class="text-xs text-brand-graySub">Connectez-vous à votre compte VidioAI.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-white">Adresse e-mail</label>
+                        <input type="email" id="login-email" placeholder="votre@email.com" class="w-full bg-brand-black border border-brand-border rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-brand-red transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-white">Mot de passe</label>
+                        <input type="password" id="login-password" placeholder="••••••••" class="w-full bg-brand-black border border-brand-border rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-brand-red transition-all">
+                    </div>
+
+                    <button type="button" onclick="processLogin()" class="w-full py-4 rounded-xl bg-brand-red hover:bg-brand-redHover text-white text-xs font-bold red-glow transition-all cursor-pointer">
+                        Se connecter
+                    </button>
+
+                    <div class="text-center pt-2">
+                        <p class="text-xs text-brand-graySub">Pas encore de compte ? <button type="button" onclick="switchView('register')" class="text-brand-red font-bold hover:underline cursor-pointer">S'inscrire</button></p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- VUE 2 : STUDIO GÉNÉRATEUR -->
-        <section id="view-generator" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <!-- COLONNE CONTRÔLES -->
+        <section id="view-generator" class="hidden w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div class="lg:col-span-5 space-y-6">
                 <div class="glass-card rounded-3xl p-6 border border-brand-border space-y-5">
                     
-                    <!-- MODE SELECTOR -->
                     <div class="grid grid-cols-2 gap-2 bg-brand-black p-1.5 rounded-xl border border-brand-border">
                         <button type="button" id="mode-btn-text" onclick="setMode('text')" class="py-2 text-xs font-bold rounded-lg bg-brand-red text-white transition-all cursor-pointer">
                             <i class="fa-solid fa-font mr-1"></i> Texte vers Vidéo
@@ -205,90 +250,38 @@
                         </button>
                     </div>
 
-                    <!-- TEXT PROMPT INPUT -->
                     <div id="input-container-text" class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <label class="text-xs font-bold text-white flex items-center space-x-1">
-                                <span>Description de la vidéo</span>
-                            </label>
-                            <button type="button" onclick="improvePromptWithAI()" class="text-[11px] font-semibold text-brand-red hover:underline flex items-center space-x-1 cursor-pointer">
-                                <i class="fa-solid fa-wand-sparkles"></i>
-                                <span>Améliorer avec IA</span>
-                            </button>
-                        </div>
-                        <textarea id="prompt-input" rows="4" class="w-full bg-brand-black border border-brand-border rounded-2xl p-3.5 text-xs text-white placeholder-brand-graySub focus:outline-none focus:border-brand-red transition-all resize-none" placeholder="Un joueur de football dribble plusieurs adversaires dans un grand stade rempli de supporters et marque un magnifique but. Vidéo cinématographique réaliste."></textarea>
+                        <label class="text-xs font-bold text-white">Description de la vidéo</label>
+                        <textarea id="prompt-input" rows="4" class="w-full bg-brand-black border border-brand-border rounded-2xl p-3.5 text-xs text-white placeholder-brand-graySub focus:outline-none focus:border-brand-red transition-all resize-none" placeholder="Un joueur de football dribble plusieurs adversaires dans un grand stade..."></textarea>
                     </div>
 
-                    <!-- IMAGE UPLOAD INPUT -->
                     <div id="input-container-image" class="hidden space-y-2">
                         <label class="text-xs font-bold text-white">Importer votre image source</label>
-                        <div class="border-2 border-dashed border-brand-border hover:border-brand-red rounded-2xl p-4 text-center cursor-pointer transition-all bg-brand-black relative" onclick="document.getElementById('image-upload-input').click()">
+                        <div class="border-2 border-dashed border-brand-border hover:border-brand-red rounded-2xl p-4 text-center cursor-pointer transition-all bg-brand-black" onclick="document.getElementById('image-upload-input').click()">
                             <input type="file" id="image-upload-input" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
                             <div id="image-preview-container" class="hidden space-y-2">
-                                <img id="image-preview" src="" class="max-h-40 mx-auto rounded-lg object-contain">
-                                <button type="button" onclick="event.stopPropagation(); removeUploadedImage();" class="text-[11px] text-brand-red font-bold underline cursor-pointer">Supprimer l'image</button>
+                                <img id="image-preview" src="" class="max-h-32 mx-auto rounded-lg object-contain">
+                                <p class="text-[11px] text-brand-red underline">Changer d'image</p>
                             </div>
-                            <div id="image-placeholder" class="space-y-2">
+                            <div id="image-placeholder" class="space-y-1">
                                 <i class="fa-solid fa-cloud-arrow-up text-2xl text-brand-red"></i>
-                                <p class="text-xs font-semibold text-white">Cliquez pour importer une photo</p>
-                                <p class="text-[10px] text-brand-graySub">PNG, JPG ou WEBP jusqu'à 10 Mo</p>
+                                <p class="text-xs font-semibold text-white">Cliquez pour importer</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- FORMATS (ASPECT RATIO) -->
                     <div class="space-y-2">
                         <label class="text-xs font-bold text-white">Format d'affichage</label>
                         <div class="grid grid-cols-3 gap-2">
-                            <button type="button" id="ratio-16-9" onclick="setAspectRatio('16:9')" class="py-2 text-xs font-semibold rounded-lg bg-brand-red border border-brand-red text-white flex items-center justify-center space-x-1.5 cursor-pointer">
-                                <i class="fa-solid fa-desktop text-[10px]"></i>
-                                <span>16:9</span>
-                            </button>
-                            <button type="button" id="ratio-9-16" onclick="setAspectRatio('9:16')" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub flex items-center justify-center space-x-1.5 cursor-pointer">
-                                <i class="fa-solid fa-mobile-screen text-[10px]"></i>
-                                <span>9:16</span>
-                            </button>
-                            <button type="button" id="ratio-1-1" onclick="setAspectRatio('1:1')" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub flex items-center justify-center space-x-1.5 cursor-pointer">
-                                <i class="fa-solid fa-square text-[10px]"></i>
-                                <span>1:1</span>
-                            </button>
+                            <button type="button" id="ratio-16-9" onclick="setAspectRatio('16:9')" class="py-2 text-xs font-semibold rounded-lg bg-brand-red border border-brand-red text-white flex items-center justify-center space-x-1 cursor-pointer">16:9</button>
+                            <button type="button" id="ratio-9-16" onclick="setAspectRatio('9:16')" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub flex items-center justify-center space-x-1 cursor-pointer">9:16</button>
+                            <button type="button" id="ratio-1-1" onclick="setAspectRatio('1:1')" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub flex items-center justify-center space-x-1 cursor-pointer">1:1</button>
                         </div>
                     </div>
 
-                    <!-- DURÉE DE LA VIDÉO -->
                     <div class="space-y-2">
                         <label class="text-xs font-bold text-white">Durée de la vidéo</label>
                         <div class="grid grid-cols-4 gap-2">
                             <button type="button" id="dur-5" onclick="setDuration(5)" class="py-2 text-xs font-semibold rounded-lg bg-brand-red text-white cursor-pointer">5s</button>
                             <button type="button" id="dur-10" onclick="setDuration(10)" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub cursor-pointer">10s</button>
-                            <button type="button" id="dur-15" onclick="setDuration(15)" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub cursor-pointer">15s</button>
-                            <button type="button" id="dur-30" onclick="setDuration(30)" class="py-2 text-xs font-semibold rounded-lg bg-brand-black border border-brand-border text-brand-graySub cursor-pointer">30s</button>
-                        </div>
-                    </div>
-
-                    <!-- BOUTON GÉNÉRER -->
-                    <button type="button" onclick="startVideoGeneration()" class="w-full py-4 rounded-2xl bg-brand-red hover:bg-brand-redHover text-white font-black text-sm red-glow transition-all flex items-center justify-center space-x-2 cursor-pointer">
-                        <i class="fa-solid fa-play"></i>
-                        <span>GÉNÉRER LA VIDÉO (5 CRÉDITS)</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- COLONNE PRÉVISUALISATION ET RENDU -->
-            <div class="lg:col-span-7">
-                <div class="glass-card rounded-3xl p-6 border border-brand-border h-full flex flex-col justify-between space-y-6">
-                    <div class="flex items-center justify-between border-b border-brand-border pb-4">
-                        <h3 class="text-sm font-bold text-white flex items-center space-x-2">
-                            <i class="fa-solid fa-display text-brand-red"></i>
-                            <span>Écran de Rendu IA</span>
-                        </h3>
-                        <span id="generation-status-tag" class="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-brand-darkGrip text-brand-graySub border border-brand-border">
-                            En attente
-                        </span>
-                    </div>
-
-                    <!-- CANVAS DE RENDU / SIMULATION -->
-                    <div id="preview-screen-container" class="relative w-full aspect-16-9 bg-black rounded-2xl overflow-hidden border border-brand-border flex items-center justify-center">
-                        <!-- IDLE STATE -->
-                        <div id="state-idle" class="text-center p-6 space-y-3">
-                            <div class="w-
+                            <button type="button" id="dur-15" oncli
